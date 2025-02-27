@@ -31,7 +31,7 @@ jobs:
         # Add any other environment variables your tests need
         
     - name: Run Appium tests on BrowserStack
-      run: npm test
+      run: npm run test:android:bs
       env:
         # These env vars will be available to the test run in addition to the .env file
         BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
