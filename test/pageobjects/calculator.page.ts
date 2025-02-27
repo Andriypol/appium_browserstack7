@@ -35,7 +35,8 @@ class CalculatorPage extends Page {
 
   async enterNumber(number: string): Promise<void> {
     for (const digit of number) {
-        await $(`android=UiSelector().text("${digit}")`).click();
+        // Using the id= prefix to specify the selector strategy
+        await this.getElement(`id=com.google.android.calculator:id/digit_${digit}`).click();
     }
 }
 

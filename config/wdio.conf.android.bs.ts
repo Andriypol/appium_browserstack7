@@ -12,6 +12,10 @@ export const config = {
           deviceName: 'Oppo Reno 3 Pro',
           platformVersion: '10.0',
           platformName: 'android',
+          skipServerInstallation: true,
+          ignoreHiddenApiPolicyError: true,
+          noReset: true,
+          disableIdLocatorAutocompletion: true
         }
       }],
     services: [
