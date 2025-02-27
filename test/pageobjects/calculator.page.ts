@@ -34,10 +34,10 @@ class CalculatorPage extends Page {
   }
 
   async enterNumber(number: string): Promise<void> {
-      for (const digit of number) {
-          await this.getElement(`android=new UiSelector().text("${digit}")`).click();
-      }
-  }
+    for (const digit of number) {
+        await this.getElement(`android=UiSelector().text("${digit}")`).click();
+    }
+}
 
   async pressPoint(): Promise<void> {
     await this.addPoint.click();
