@@ -13,22 +13,18 @@ export const config = {
 
       'appium:app': process.env.BROWSERSTACK_ANDROID_APP_ID, // Your uploaded app ID
 
-      'bstack:options': { // Put BrowserStack-specific options here
-          deviceName: 'Oppo Reno 3 Pro',
-          platformVersion: '10.0',
-          projectName: "BrowserStack Android App Testing",
-          buildName: 'browserstack Android build',
-          sessionName: 'Calculator App Test', 
-          
-          debug: true, // Enable debugging (live view, etc.)
-          networkLogs: true, // Capture network logs
-          consoleLogs: "warn", // Capture console logs
-
-          local: false, // Set to true if testing localhost (optional)
-
-          // Optional but useful settings
-          idleTimeout: 300, // Timeout for inactivity
-      }
+      'bstack:options': {
+    deviceName: 'Oppo Reno 3 Pro',
+    platformVersion: '10.0',
+    projectName: "BrowserStack Android App Testing",
+    buildName: 'browserstack Android build',
+    sessionName: 'Calculator App Test', 
+    debug: true,
+    networkLogs: true,
+    consoleLogs: "warnings", 
+    local: true,
+    idleTimeout: 300,
+     }
   }],
 
     services: [
