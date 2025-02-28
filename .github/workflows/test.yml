@@ -3,7 +3,6 @@ name: Appium BrowserStack Tests
 on:
   push:
     branches: [ main ]
-  pull_request:
 
 jobs:
   appium-browserstack-test:
@@ -33,7 +32,7 @@ jobs:
     - name: Run Appium tests on BrowserStack
       run: npm run test:android:bs
       env:
-        # These env vars will be available to the test run in addition to the .env file
+       
         BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
         BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
         BROWSERSTACK_APP_ID: ${{ secrets.BROWSERSTACK_APP_ID }}
@@ -42,8 +41,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: test-results
-        path: |
-          test-results/
-          reports/
-          screenshots/
+        name: allure-report
+        path: allure-report/
