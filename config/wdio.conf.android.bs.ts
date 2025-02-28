@@ -8,22 +8,29 @@ export const config = {
     hostname: 'hub.browserstack.com',
 
     capabilities: [{
-        'bstack:options': {
-          platformName: 'Android',
-        'appium:deviceName': 'Oppo Reno 3 Pro', // Or another device you want to test
-        'appium:platformVersion': '10.0',
-        'appium:automationName': 'UiAutomator2',
+      platformName: 'Android', // Keep this outside bstack:options
+      'appium:automationName': 'UiAutomator2', // Appium capabilities stay outside too
 
-        // Link to the uploaded app in BrowserStack
-        'appium:app': process.env.BROWSERSTACK_ANDROID_APP_ID,
+      'appium:app': process.env.BROWSERSTACK_ANDROID_APP_ID, // Your uploaded app ID
 
-        // Skip reset to avoid reinstalling the app every time
-        'appium:noReset': true,
+      'bstack:options': { // Put BrowserStack-specific options here
+          deviceName: 'Oppo Reno 3 Pro',
+          platformVersion: '10.0',
+          projectName: "BrowserStack Android App Testing",
+          buildName: 'browserstack Android build',
+          sessionName: 'Calculator App Test', 
+          
+          debug: true, // Enable debugging (live view, etc.)
+          networkLogs: true, // Capture network logs
+          consoleLogs: "warn", // Capture console logs
 
-        // Optional for debugging
-        'appium:newCommandTimeout': 300,
-        }
-      }],
+          local: false, // Set to true if testing localhost (optional)
+
+          // Optional but useful settings
+          idleTimeout: 300, // Timeout for inactivity
+      }
+  }],
+
     services: [
         [
           'browserstack',
