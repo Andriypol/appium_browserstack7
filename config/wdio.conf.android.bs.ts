@@ -8,11 +8,13 @@ export const config = {
     hostname: 'hub.browserstack.com',
 
     capabilities: [{
-        'bstack:options': {
+      platformName: 'android',   
+      'bstack:options': {
           deviceName: 'Oppo Reno 3 Pro',
           platformVersion: '10.0',
-          platformName: 'android',
-          app: process.env.BROWSERSTACK_ANDROID_APP_ID
+          app: process.env.BROWSERSTACK_ANDROID_APP_ID,  
+          automationName: 'UiAutomator2',               
+          noReset: true,   
         }
       }],
     services: [
