@@ -9,9 +9,19 @@ export const config = {
 
     capabilities: [{
         'bstack:options': {
-          deviceName: 'Oppo Reno 3 Pro',
-          platformVersion: '10.0',
-          platformName: 'android',
+          platformName: 'Android',
+        'appium:deviceName': 'Oppo Reno 3 Pro', // Or another device you want to test
+        'appium:platformVersion': '10.0',
+        'appium:automationName': 'UiAutomator2',
+
+        // Link to the uploaded app in BrowserStack
+        'appium:app': process.env.BROWSERSTACK_ANDROID_APP_ID,
+
+        // Skip reset to avoid reinstalling the app every time
+        'appium:noReset': true,
+
+        // Optional for debugging
+        'appium:newCommandTimeout': 300,
         }
       }],
     services: [
